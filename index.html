@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Guessing Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="player-name-container">
+    <h1>Enter Your Name</h1>
+    <input type="text" id="player-name-input" placeholder="Your Name">
+    <button id="start-game">Start Game</button>
+  </div>
+  <div class="game-container" id="game-container" style="display: none;">
+    <div id="player-info">
+      <img src="icon.png" alt="Player Icon" id="player-icon">
+      <!-- Removed player name display -->
+    </div>
+    <h1>Number Guessing Game</h1>
+    <p id="guide-text">Guess a number:</p> <!-- Updated guide text -->
+    <select id="level-selector">
+      <option value="easy">Easy (1-10)</option> <!-- Updated option text -->
+      <option value="medium">Medium (1-50)</option> <!-- Updated option text -->
+      <option value="hard">Hard (1-100)</option> <!-- Updated option text -->
+    </select>
+    <div id="health-bar"></div>
+    <input type="number" id="guess-input" min="1" max="100">
+    <button id="submit-guess">Submit Guess</button>
+    <p id="message"></p>
+    <p id="attempts">Attempts: 0</p>
+    <div id="message-icon"></div>
+  </div>
+  <div id="game-over-overlay" style="display: none;">
+    <div class="game-over-container">
+      <img src="banana-cat-crying.gif" alt="Game Over GIF">
+      <p>Game Over</p>
+      <button id="continue-button">Click here to continue</button>
+    </div>
+  </div>
+  <div id="player-info-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Player Info</h2>
+      <p>Name: <span id="modal-player-name"></span></p>
+      <p>Easy: <span id="modal-easy-score">0</span></p>
+      <p>Medium: <span id="modal-medium-score">0</span></p>
+      <p>Hard: <span id="modal-hard-score">0</span></p>
+    </div>
+  </div>
+  <div id="message-container" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <div id="apology-message"></div> <!-- Ensure this element is correctly placed -->
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

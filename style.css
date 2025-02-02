@@ -1,0 +1,473 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
+    transition: background 0.5s ease-in-out; /* Smooth background transition */
+}
+
+/* Game Container */
+.game-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Heading */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: color 0.3s ease-in-out; /* Smooth color transition */
+}
+
+/* Instructions */
+p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+    transition: color 0.3s ease-in-out; /* Smooth color transition */
+}
+
+/* Input Field */
+input[type="number"] {
+    padding: 12px;
+    font-size: 1rem;
+    width: 80%;
+    margin-bottom: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s ease, background 0.3s ease; /* Smooth transition */
+}
+
+input[type="number"]:focus {
+    border-color: #4caf50;
+    background: rgba(255, 255, 255, 0.2); /* Smooth background transition */
+}
+
+/* Submit Button */
+button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #4caf50, #45a049);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #45a049, #4caf50);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Smooth box-shadow transition */
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Message Display */
+#message {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: #fff;
+    font-weight: bold;
+    animation: popIn 0.5s ease-in-out;
+    transition: color 0.3s ease-in-out; /* Smooth color transition */
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Attempts Display */
+#attempts {
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #e0e0e0;
+    transition: color 0.3s ease-in-out; /* Smooth color transition */
+}
+
+/* Level Selector */
+#level-selector {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s ease, background 0.3s ease; /* Smooth transition */
+}
+
+#level-selector:focus {
+    border-color: #4caf50;
+    background: rgba(255, 255, 255, 0.2); /* Smooth background transition */
+}
+
+/* Health Bar */
+#health-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: margin-bottom 0.3s ease-in-out; /* Smooth margin transition */
+}
+
+.heart {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    background: url('heart.png') no-repeat center center;
+    background-size: contain;
+    transition: background 0.3s ease-in-out; /* Smooth background transition */
+}
+
+.heart.lost {
+    background: url('heart-lost.png') no-repeat center center;
+    background-size: contain;
+}
+
+/* Game Over Overlay */
+#game-over-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    transition: background 0.5s ease-in-out; /* Smooth background transition */
+}
+
+#game-over-overlay img {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+    transition: margin-bottom 0.3s ease-in-out; /* Smooth margin transition */
+}
+
+#game-over-overlay button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #4caf50, #45a049);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+#game-over-overlay button:hover {
+    background: linear-gradient(135deg, #45a049, #4caf50);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Smooth box-shadow transition */
+}
+
+#game-over-overlay button:active {
+    transform: translateY(0);
+}
+
+.game-over-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Player Name Container */
+#player-name-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    transition: height 0.3s ease-in-out; /* Smooth height transition */
+}
+
+#player-name-container input {
+    padding: 12px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s ease, background 0.3s ease; /* Smooth transition */
+}
+
+#player-name-container input:focus {
+    border-color: #4caf50;
+    background: rgba(255, 255, 255, 0.2); /* Smooth background transition */
+}
+
+#player-name-container button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #4caf50, #45a049);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#player-name-container button:hover {
+    background: linear-gradient(135deg, #45a049, #4caf50);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Smooth box-shadow transition */
+}
+
+#player-name-container button:active {
+    transform: translateY(0);
+}
+
+/* Player Info */
+#player-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    transition: margin-bottom 0.3s ease-in-out; /* Smooth margin transition */
+}
+
+#player-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out; /* Smooth size transition */
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s ease-in-out; /* Smooth background transition */
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
+}
+
+.close-button {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out; /* Smooth color transition */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Message Container */
+#message-container {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s ease-in-out; /* Smooth background transition */
+}
+
+#message-container .modal-content {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    text-align: left; /* Align text to the left */
+    max-width: 600px; /* Increased max-width */
+    width: 90%; /* Adjusted width */
+    animation: fadeIn 1s ease-in-out;
+    font-size: 1rem; /* Adjusted font size */
+    line-height: 1.5; /* Adjusted line height */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
+}
+
+#message-container .close-button {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out; /* Smooth color transition */
+}
+
+#message-container .close-button:hover,
+#message-container .close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Message Icon */
+#message-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px; /* Reduced from 50px to 40px */
+    height: 40px; /* Reduced from 50px to 40px */
+    background: url('mail.png') no-repeat center center;
+    background-size: contain;
+    cursor: pointer;
+    z-index: 1001;
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out; /* Smooth size transition */
+}
+
+#apology-message {
+    font-size: 2px; /* Set font size to 2px */
+    white-space: pre-wrap; /* Ensure text wraps properly */
+    overflow: auto; /* Allow scrolling if content overflows */
+    max-height: 80vh; /* Ensure the message fits within the viewport */
+    padding: 10px; /* Add padding for better readability */
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    body {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .game-container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    input[type="number"] {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    #game-over-overlay img {
+        max-width: 100%;
+    }
+
+    .game-over-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    #player-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    #player-info img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    input[type="number"] {
+        width: 90%;
+    }
+}
